@@ -10,14 +10,40 @@
 아래 시퀀스 다이어그램은 사용자가 키오스크에서 음료를 주문할 때의 전체 흐름을 표현합니다.  
 메뉴 선택부터 결제, 제조까지의 절차와 각 예외 상황(메뉴 없음, 품절, 결제 실패 등)을 조건 분기로 세분화하였습니다.  
 
-<pre> <code> ```mermaid   
-  sequenceDiagram   
-  actor Customer   
-  participant KioskUI   
-  participant OrderSystem   
-  participant PaymentModule   
-  participant CoffeeMachine   
-  Customer ->> KioskUI: 메뉴 선택 alt 메뉴 없음 KioskUI -->> Customer: 존재하지 않는 메뉴 안내 else 메뉴 존재 KioskUI ->> OrderSystem: 주문 요청 alt 품절 OrderSystem -->> KioskUI: 품절 알림 KioskUI -->> Customer: 품절 안내 else 주문 가능 OrderSystem -->> KioskUI: 주문 요약 반환 Customer ->> KioskUI: 결제 클릭 KioskUI ->> PaymentModule: 결제 요청 alt 결제 실패 PaymentModule -->> KioskUI: 결제 실패 응답 KioskUI -->> Customer: 결제 실패 알림 else 결제 성공 PaymentModule -->> KioskUI: 결제 성공 응답 KioskUI ->> CoffeeMachine: 제조 요청 CoffeeMachine -->> Customer: 주문 완료 알림 end end end ``` </code> </pre>
+```mermaid
+sequenceDiagram
+    actor Customer
+    participant KioskUI
+    participant OrderSystem
+    participant PaymentModule
+    participant CoffeeMachine
+
+    Customer ->> KioskUI: 메뉴 선택
+
+    alt 메뉴 없음
+        KioskUI -->> Customer: 존재하지 않는 메뉴 안내
+    else 메뉴 존재
+        KioskUI ->> OrderSystem: 주문 요청
+
+        alt 품절
+            OrderSystem -->> KioskUI: 품절 알림
+            KioskUI -->> Customer: 품절 안내
+        else 주문 가능
+            OrderSystem -->> KioskUI: 주문 요약 반환
+            Customer ->> KioskUI: 결제 클릭
+            KioskUI ->> PaymentModule: 결제 요청
+
+            alt 결제 실패
+                PaymentModule -->> KioskUI: 결제 실패 응답
+                KioskUI -->> Customer: 결제 실패 알림
+            else 결제 성공
+                PaymentModule -->> KioskUI: 결제 성공 응답
+                KioskUI ->> CoffeeMachine: 제조 요청
+                CoffeeMachine -->> Customer: 주문 완료 알림
+            end
+        end
+    end
+
 ![시퀀스 다이어그램](sequence_diagram.png)    
 
 
