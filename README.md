@@ -106,9 +106,9 @@ KiosUI를 중심으로 각 기능 모듈이 독립적으로 연결되며, 클래
 
 # 폴더 구조
 kiosk-order-system  
-├── kiosk.py               # 메인 프로그램  
-├── README.md              # 과제 설명 및 결과 정리  
-├── sequence_diagram.mmd  # Mermaid 시퀀스 다이어그램 원본 (선택)  
+├── kiosk.py                 # 메인 프로그램  
+├── README.md                # 과제 설명 및 결과 정리  
+├── sequence_diagram.mmd    # Mermaid 시퀀스 다이어그램 원본 (선택)  
 
 
 
