@@ -10,6 +10,7 @@
 아래 시퀀스 다이어그램은 사용자가 키오스크에서 음료를 주문할 때의 전체 흐름을 표현합니다.  
 메뉴 선택부터 결제, 제조까지의 절차와 각 예외 상황(메뉴 없음, 품절, 결제 실패 등)을 조건 분기로 세분화하였습니다.  
 
+<pre> <code>
 ```mermaid
 sequenceDiagram
     actor Customer
@@ -43,7 +44,7 @@ sequenceDiagram
             end
         end
     end
-
+``` </code> </pre>
 ![시퀀스 다이어그램](sequence_diagram.png)    
 
 
