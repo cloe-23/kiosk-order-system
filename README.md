@@ -44,7 +44,7 @@ sequenceDiagram
             end
         end
     end
-<pre> <code>
+</code> </pre>
 ![시퀀스 다이어그램](sequence_diagram.png)    
 
 
