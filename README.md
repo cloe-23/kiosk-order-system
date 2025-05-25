@@ -42,7 +42,8 @@ sequenceDiagram
                 CoffeeMachine -->> Customer: 주문 완료 알림
             end
         end
-    end
+    end  
+![시퀀스 다이어그램](sequence_diagram.png)    
 
 
 # ⓑ 샘플 코드 설명
